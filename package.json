@@ -1,0 +1,16 @@
+{
+  "name": "root",
+  "private": true,
+  "version": "1.0.0",
+  "devDependencies": {
+    "lerna": "^8.2.1"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "start": "lerna run start --parallel",
+    "test": "lerna run test --parallel",
+    "build": "lerna run build --parallel"
+  }
+}
