@@ -7,7 +7,7 @@ const api = axios.create({
 })
 
 interface AppState {
-  res: any; // Define the expected structure for better type safety
+  res: any;
 }
 
 class App extends Component<{}, AppState> {
