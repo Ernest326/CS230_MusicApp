@@ -6,7 +6,8 @@ exports.getAllArtists = (req, res) => {
         if (err) {
             console.log("BACKEND: Error in getAllArtists");
             res.sendStatus(500);
-            throw err;
+            console.log(err);
+            //throw err;
         }
         res.send(rows)
     });
@@ -14,26 +15,29 @@ exports.getAllArtists = (req, res) => {
 
 exports.createArtist = (req, res) => {
     console.log("BACKEND: Received request createArtist");
-    const { name, listeners, genre } = req.body;
-    db.query('INSERT INTO ARTIST (name, monthly_listeners, genre) VALUES (?, ?, ?)', [name, listeners, genre], (err, result) => {
+    console.log(req.body);
+    const { name, monthly_listeners, genre } = req.body;
+
+    db.query('INSERT INTO ARTIST (name, monthly_listeners, genre) VALUES (?, ?, ?)', [name, monthly_listeners, genre], (err, result) => {
         if (err) {
             console.log("BACKEND: Error in createArtist");
             res.sendStatus(500);
-            throw err;
+            //throw err;
         }
         res.send(result)
     });
+
 }
 
 exports.updateArtist = (req, res) => {
     console.log("BACKEND: Received request updateArtist");
     const id = req.params.id;
-    const { name, listeners, genre } = req.body;
-    db.query('UPDATE ARTIST SET name = ?, monthly_listeners = ?, genre = ? WHERE name = ?', [name, listeners, genre, id], (err, result) => {
+    const { name, monthly_listeners, genre } = req.body;
+    db.query('UPDATE ARTIST SET name = ?, monthly_listeners = ?, genre = ? WHERE name = ?', [name, monthly_listeners, genre, id], (err, result) => {
         if (err) {
             console.log("BACKEND: Error in updateArtist");
             res.sendStatus(500);
-            throw err;
+            //throw err;
         }
         res.send(result)
     });
@@ -46,7 +50,7 @@ exports.deleteArtist = (req, res) => {
         if (err) {
             console.log("BACKEND: Error in deleteArtist");
             res.sendStatus(500);
-            throw err;
+            //throw err;
         }
         res.send(result)
     });
