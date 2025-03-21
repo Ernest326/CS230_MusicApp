@@ -3,8 +3,8 @@ const router = express.Router();
 const controller = require("../controllers/songController");
 
 router.get("/", controller.getAllSongs);
-//router.post("/", controller.createArtist);
-//router.put("/:id", controller.updateArtist);
-//router.delete("/:id", controller.deleteArtist);
+router.post("/", controller.createSong);
+router.put("/:id&:album", controller.updateSong);
+router.delete("/:id&:album", controller.deleteSong);
 
 module.exports = router;
