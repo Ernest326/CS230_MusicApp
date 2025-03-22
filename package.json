@@ -12,5 +12,8 @@
     "start": "lerna run start --parallel",
     "test": "lerna run test --parallel",
     "build": "lerna run build --parallel"
+  },
+  "dependencies": {
+    "@mui/icons-material": "^6.4.8"
   }
 }

@@ -68,7 +68,7 @@ exports.deleteAlbum = (req, res) => {
     });
 
     //Delete songs as well
-    db.query('DELETE SONG WHERE album = ? AND artist = ?', [id, artist_id], (err, result) => {
+    db.query('DELETE FROM SONG WHERE album = ? AND artist = ?', [id, artist_id], (err, result) => {
         if (err) {
             console.log("BACKEND: Error in updateArtist::Song");
             console.log(err);
