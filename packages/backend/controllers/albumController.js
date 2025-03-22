@@ -41,6 +41,15 @@ exports.updateAlbum = (req, res) => {
             res.sendStatus(500);
             //throw err;
         }
+    })
+    //Update songs as well
+    db.query('UPDATE SONG SET album = ? WHERE album = ? AND artist = ?', [name, id, artist_id], (err, result) => {
+        if (err) {
+            console.log("BACKEND: Error in updateArtist::Song");
+            console.log(err);
+            res.sendStatus(500);
+            //throw err;
+        }
         res.send(result)
     });
 }
@@ -56,6 +65,17 @@ exports.deleteAlbum = (req, res) => {
             res.sendStatus(500);
             //throw err;
         }
+    });
+
+    //Delete songs as well
+    db.query('DELETE SONG WHERE album = ? AND artist = ?', [id, artist_id], (err, result) => {
+        if (err) {
+            console.log("BACKEND: Error in updateArtist::Song");
+            console.log(err);
+            res.sendStatus(500);
+            //throw err;
+        }
         res.send(result)
     });
+
 }
